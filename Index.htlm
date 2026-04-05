@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti</title>
+    <style>
+        body { margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background-color: #fce4ec; font-family: sans-serif; text-align: center; }
+        h1 { color: #ad1457; padding: 0 20px; }
+        button { padding: 15px 30px; font-size: 1.2rem; font-weight: bold; cursor: pointer; border: none; border-radius: 50px; }
+        #si { background-color: #ff4081; color: white; margin-right: 20px; }
+        #no { background-color: #757575; color: white; position: absolute; transition: 0.1s; }
+    </style>
+</head>
+<body>
+    <h1 id="pregunta">¿Quieres ser mi novia?</h1>
+    <div id="botones">
+        <button id="si">Sí</button>
+        <button id="no">No</button>
+    </div>
+    <script>
+        const btnNo = document.getElementById('no');
+        const btnSi = document.getElementById('si');
+        const moverBoton = () => {
+            const x = Math.random() * (window.innerWidth - btnNo.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btnNo.offsetHeight);
+            btnNo.style.left = x + "px"; btnNo.style.top = y + "px";
+        };
+        btnNo.addEventListener('mouseenter', moverBoton);
+        btnNo.addEventListener('touchstart', (e) => { e.preventDefault(); moverBoton(); });
+        btnSi.addEventListener('click', () => {
+            document.body.innerHTML = "<h1 style='color: #d81b60;'>¡Qué feliz estoy! Te amaré toda la vida ❤️</h1>";
+        });
+    </script>
+</body>
+</html>
